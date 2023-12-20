@@ -6,25 +6,25 @@ package org.jetbrains.dokka.it.gradle
 
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
-import org.gradle.testkit.runner.internal.DefaultGradleRunner
 import org.gradle.tooling.GradleConnectionException
 import org.gradle.util.GradleVersion
 import org.jetbrains.dokka.it.AbstractIntegrationTest
+import org.jetbrains.dokka.it.withJvmArguments
 import java.io.File
 import java.net.URI
 import kotlin.test.BeforeTest
 
-public abstract class AbstractGradleIntegrationTest : AbstractIntegrationTest() {
+abstract class AbstractGradleIntegrationTest : AbstractIntegrationTest() {
 
     @BeforeTest
-    public fun copyTemplates() {
+    fun copyTemplates() {
         File("projects").listFiles().orEmpty()
             .filter { it.isFile }
             .filter { it.name.startsWith("template.") }
             .forEach { file -> file.copyTo(File(tempFolder, file.name)) }
     }
 
-    public fun createGradleRunner(
+    fun createGradleRunner(
         buildVersions: BuildVersions,
         vararg arguments: String,
         jvmArgs: List<String> = listOf("-Xmx2G", "-XX:MaxMetaspaceSize=1G")
@@ -50,11 +50,10 @@ public abstract class AbstractGradleIntegrationTest : AbstractIntegrationTest() 
 
                     * arguments
                 )
-            ).run { this as DefaultGradleRunner }
-            .withJvmArguments(jvmArgs)
+            ).withJvmArguments(jvmArgs)
     }
 
-    public fun GradleRunner.buildRelaxed(): BuildResult {
+    fun GradleRunner.buildRelaxed(): BuildResult {
         return try {
             build()
         } catch (e: Throwable) {
