@@ -20,7 +20,7 @@ internal fun <T : Any> optionalSystemProperty(
 
 fun <T> systemProperty(
   convert: (String) -> T
-): ReadOnlyProperty<Any, T> =
+): ReadOnlyProperty<Any?, T> =
   ReadOnlyProperty { _, property ->
     val value = requireNotNull(System.getProperty(property.name)) {
       "system property ${property.name} is unavailable"

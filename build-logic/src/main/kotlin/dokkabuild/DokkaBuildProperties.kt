@@ -58,6 +58,7 @@ abstract class DokkaBuildProperties @Inject constructor(
     /** Not currently used - should be dropped. */
     val integrationTestExhaustive: Provider<Boolean> =
         dokkaProperty("integration_test.exhaustive", String::toBoolean)
+            .orElse(false)
 
     /** Control whether integration tests should use the `org.jetbrains.dokka.experimental.tryK2` flag. */
     val integrationTestUseK2: Provider<Boolean> =
