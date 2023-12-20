@@ -92,8 +92,6 @@ tasks.withType<Test>().configureEach {
         showCauses = true
         showStackTraces = true
     }
-
-    doNotTrackState("uses artifacts from Maven Local")
 }
 
 val templateProjectsDir = layout.projectDirectory.dir("projects")
