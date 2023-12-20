@@ -3,3 +3,10 @@
  */
 
 rootProject.name = "dokka-kotlinAsJava-example"
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}

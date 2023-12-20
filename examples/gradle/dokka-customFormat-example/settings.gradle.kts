@@ -3,3 +3,10 @@
  */
 
 rootProject.name = "dokka-customFormat-example"
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}

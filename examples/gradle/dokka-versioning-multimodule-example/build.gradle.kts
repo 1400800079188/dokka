@@ -10,6 +10,7 @@ plugins {
 // The versioning plugin must be applied in all submodules
 subprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     apply {

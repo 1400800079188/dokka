@@ -10,6 +10,11 @@ pluginManagement {
         kotlin("jvm") version kotlinVersion
         id("org.jetbrains.dokka") version dokkaVersion
     }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 include(":parentProject")

@@ -3,3 +3,10 @@
  */
 
 rootProject.name = "dokka-library-publishing-example"
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}

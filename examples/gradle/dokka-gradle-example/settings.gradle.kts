@@ -3,3 +3,10 @@
  */
 
 rootProject.name = "dokka-gradle-example"
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
